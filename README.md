@@ -1,7 +1,7 @@
 # Example
 
 This example illustrate the use of Memento pattern to manage the state of a bank account , and to implement undo operation.
-- BankAccountMemento class represents the state of the BankAccount,
+- BankAccount.Memento class represents the state of the BankAccount,
 - BankAccount class is the originator that creates and restores its state from mementos,
 - MementoCaretaker class acts as the caretaker, managing the stack of mementos.
 - The Main class demonstrates creating a bank account, performing operations, and undoing the last operation using the Memento pattern.

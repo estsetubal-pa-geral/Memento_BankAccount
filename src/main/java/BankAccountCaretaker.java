@@ -3,17 +3,21 @@ import java.util.Stack;
 public  class BankAccountCaretaker {
     // Caretaker class that holds and manages the mementos
 
-    private Stack<BankAccountMemento> mementoStack = new Stack<>();
 
-        public void saveMemento(BankAccountMemento memento) {
-            mementoStack.push(memento);
+        private Stack<BankAccount.Memento> mementos = new Stack<>();
+        private BankAccount originator;
+
+        public BankAccountCaretaker(BankAccount originator){
+            this.originator=originator;
         }
 
-        public BankAccountMemento undo() {
-            if (!mementoStack.isEmpty()) {
-                return mementoStack.pop();
-            }
-            return null;
+        public void save() {
+            mementos.push(originator.save());
+        }
+
+        public void undo() {
+            if (!mementos.isEmpty())
+                originator.restore(mementos.pop());
         }
 
 }
